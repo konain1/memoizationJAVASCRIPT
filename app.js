@@ -22,7 +22,7 @@ const memo = (fun)=>{
 
         if(n in cache){
             console.log('cache')
-            return n
+            return cache[n]
 
         }else{
             console.log('first time')
@@ -30,13 +30,18 @@ const memo = (fun)=>{
 
             cache[n] = y;
 
-            return n
+            return y
         }
     }
 }
 
 console.time()
-let  res = memo(sum(5))
-console.log(res)
+let  res = memo(sum)
+console.log(res(5))
 
 console.timeEnd()
+
+
+console.time()
+console.log(res(5))
+console.timeEnd();
